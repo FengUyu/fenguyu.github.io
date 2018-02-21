@@ -52,32 +52,10 @@
 
 
   
-  
-  <div class="site-header-image">
-    <img id="originBg" width="100%" alt="Hike News" src="">
-  </div>
-
-  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
-    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
-  </div>
-
-  <script>
-        var imgUrls = "css/images/pose01.jpg,https://source.unsplash.com/collection/954550/1920x1080,https://source.unsplash.com/collection/954550/1920x1081".split(",");
-        var random = Math.floor((Math.random() * imgUrls.length ));
-        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-          document.getElementById("originBg").src=imgUrls[random];
-          document.getElementById("blurBg").src=imgUrls[random];
-        } else {
-          document.getElementById("originBg").src='/' + imgUrls[random];
-          document.getElementById("blurBg").src='/' + imgUrls[random];
-        }
-    </script>
-
-
 
 
 <header id="allheader" class="site-header" role="banner" 
-   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
+   >
   <div class="clearfix container">
       <div class="site-branding">
 
@@ -126,6 +104,16 @@
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/02/14/你好/">about开始</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-meta">
       
 	<a href="/2018/02/14/你好/" class="article-date">
@@ -137,8 +125,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="about开始"><a href="#about开始" class="headerlink" title="about开始"></a>about开始</h2><h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3><p><img src="/2018/02/14/你好/IMG_4312.jpg" alt="IMG_4312"></p>
+        <h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3><p><img src="/2018/02/14/你好/IMG_4312.jpg" alt="IMG_4312"></p>
 <p><del>我也不知道说什么</del></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> a,b;</span><br><span class="line">   <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,%d);</span><br><span class="line">    <span class="keyword">if</span>(a&gt;b)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,a);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -310,7 +297,7 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2018/02/14/你好/">(no title)</a></h6>
+              <h6 style="margin: 0;"><a href="/2018/02/14/你好/">about开始</a></h6>
               <span>二月 14, 2018</span>
             </div>
 
@@ -401,9 +388,6 @@
 
 
     <!-- headerblur min height -->
-    
-      var headerblur = document.getElementById("header-blur");
-      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
     
     
 </script>
