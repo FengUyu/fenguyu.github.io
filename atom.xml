@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>foesa&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://fenguyu.github.io/"/>
+  <updated>2018-02-14T14:06:10.206Z</updated>
+  <id>https://fenguyu.github.io/</id>
+  
+  <author>
+    <name>foesa</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://fenguyu.github.io/2018/02/14/%E4%BD%A0%E5%A5%BD/"/>
+    <id>https://fenguyu.github.io/2018/02/14/你好/</id>
+    <published>2018-02-14T14:00:05.242Z</published>
+    <updated>2018-02-14T14:06:10.206Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3><p><img src="/2018/02/14/你好/IMG_4312.jpg" alt="IMG_4312"></p><p><del>我也不知道说什么</del></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> a,b;</span><br><span class="line">   <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,%d);</span><br><span class="line">    <span class="keyword">if</span>(a&gt;b)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,a);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;你好&quot;&gt;&lt;a href=&quot;#你好&quot; class=&quot;headerlink&quot; title=&quot;你好&quot;&gt;&lt;/a&gt;你好&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2018/02/14/你好/IMG_4312.jpg&quot; alt=&quot;IMG_4312&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;我也不
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>噫，恭喜你点开链接</title>
+    <link href="https://fenguyu.github.io/2018/02/11/hello-world/"/>
+    <id>https://fenguyu.github.io/2018/02/11/hello-world/</id>
+    <published>2018-02-11T03:40:24.713Z</published>
+    <updated>2018-02-14T16:23:24.379Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2018/02/11/hello-world/IMG_4246.JPG" alt="IMG_4246"></p><h2 id="乱七八糟我想说的话"><a href="#乱七八糟我想说的话" class="headerlink" title="乱七八糟我想说的话"></a>乱七八糟我想说的话</h2><p>​         是真的很开心，你能点开这个链接hhhh刚刚那条就是个测试啦！</p><p>​         哇，情人节已经过去了诶，虽然今天各种不顺利，但是明天就要到除夕饭了，想想还有点小激动呢！</p><p>​         真心很喜欢你，想要和你一辈子。</p><p>​         空间里面被虐的不止我一个吧？</p><p>​         hhhhh</p><p>​         <strong>所以希望看到这里的你，2018没脱单的都能脱单，脱单的人都能和你的TA好好的，愿你2018拥有超好的运气，得到自己想要的一切！</strong><br>  <del>给您拜年了</del><br>  <del>我有毒，别理我</del></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/2018/02/11/hello-world/IMG_4246.JPG&quot; alt=&quot;IMG_4246&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;乱七八糟我想说的话&quot;&gt;&lt;a href=&quot;#乱七八糟我想说的话&quot; class=&quot;headerlink&quot; title=&quot;乱七八
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
