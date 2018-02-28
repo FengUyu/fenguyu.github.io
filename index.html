@@ -52,10 +52,32 @@
 
 
   
+  
+  <div class="site-header-image">
+    <img id="originBg" width="100%" alt="Hike News" src="">
+  </div>
+
+  <div id="header-blur" class="site-header-image blur" style="position: absolute; top:0; height: 207px; min-height: 207px; min-width: 100%;">
+    <img id="blurBg" width="100%" style="top: 96%" alt="Hike News" src="">
+  </div>
+
+  <script>
+        var imgUrls = "css/images/pose01.jpg,https://source.unsplash.com/collection/954550/1920x1080,https://source.unsplash.com/collection/954550/1920x1081".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("originBg").src=imgUrls[random];
+          document.getElementById("blurBg").src=imgUrls[random];
+        } else {
+          document.getElementById("originBg").src='/' + imgUrls[random];
+          document.getElementById("blurBg").src='/' + imgUrls[random];
+        }
+    </script>
+
+
 
 
 <header id="allheader" class="site-header" role="banner" 
-   >
+   style="width: 100%; position: absolute; top:0; background: rgba(255,255,255,.8);"  >
   <div class="clearfix container">
       <div class="site-branding">
 
@@ -100,7 +122,7 @@
         
           <section id="main">
   
-    <article id="post-welcome"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-1-welcome"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -108,7 +130,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/welcome/">噫，恭喜你点开foesa的博客</a>
+      <a class="article-title" href="/1-welcome/">噫，恭喜你点开foesa的博客</a>
     </h1>
   
 
@@ -116,7 +138,7 @@
     
     <div class="article-meta">
       
-	<a href="/welcome/" class="article-date">
+	<a href="/1-welcome/" class="article-date">
 	  <time datetime="2018-02-20T16:00:00.000Z" itemprop="datePublished">二月 21, 2018</time>
 	</a>
 
@@ -137,7 +159,7 @@
 <blockquote>
 <p>你为什么要那么努力？<br>因为我喜欢的东西都很贵，我想去的地方都很远，我爱的人超完美</p>
 </blockquote>
-<p><img src="/welcome/IMG_4637.JPG" alt="">   </p>
+<p><img src="/1-welcome/welcome/IMG_4637.JPG" alt="">   </p>
 
       
     </div>
@@ -265,7 +287,7 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/welcome/">噫，恭喜你点开foesa的博客</a></h6>
+              <h6 style="margin: 0;"><a href="/1-welcome/">噫，恭喜你点开foesa的博客</a></h6>
               <span>二月 21, 2018</span>
             </div>
 
@@ -365,6 +387,9 @@
 
 
     <!-- headerblur min height -->
+    
+      var headerblur = document.getElementById("header-blur");
+      headerblur.style.minHeight = window.getComputedStyle(document.getElementById("allheader"), null).height;
     
     
 </script>
