@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fenguyu.github.io/"/>
-  <updated>2018-02-28T07:16:56.685Z</updated>
+  <updated>2018-02-28T07:22:25.690Z</updated>
   <id>https://fenguyu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个小小的测试</title>
+    <link href="https://fenguyu.github.io/%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B0%8F%E7%9A%84%E6%B5%8B%E8%AF%95/"/>
+    <id>https://fenguyu.github.io/一个小小的测试/</id>
+    <published>2018-02-27T16:00:00.000Z</published>
+    <updated>2018-02-28T07:22:25.690Z</updated>
+    
+    <content type="html"><![CDATA[<p>​             喵喵喵，一个小测试而已。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​             喵喵喵，一个小测试而已。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="work" scheme="https://fenguyu.github.io/categories/work/"/>
+    
+    
+      <category term="无关紧要" scheme="https://fenguyu.github.io/tags/%E6%97%A0%E5%85%B3%E7%B4%A7%E8%A6%81/"/>
+    
+  </entry>
   
   <entry>
     <title>噫，恭喜你点开foesa的博客</title>
