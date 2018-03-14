@@ -100,6 +100,68 @@
         
           <section id="main">
   
+    <article id="post-2018-03-14-杭电oj刷题遇到的问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018-03-14-杭电oj刷题遇到的问题/">杭电oj刷题遇到的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018-03-14-杭电oj刷题遇到的问题/" class="article-date">
+	  <time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">三月 14, 2018</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##[2000]ASCII码排序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> ch[<span class="number">3</span>],temp;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%c%c%c"</span>,&amp;ch[<span class="number">0</span>],&amp;ch[<span class="number">1</span>],&amp;ch[<span class="number">2</span>])!=EOF)</span><br><span class="line">    <span class="comment">/*从标准输入输入字符，直到遇到结束符为止*/</span></span><br><span class="line">    <span class="comment">/*EOF是一个宏，代表文件结束，意思就是只要拿到的字符不是EOF就继续循环*/</span></span><br><span class="line">    <span class="comment">/*题目所要表达的意思，多看一下F.A.Q里面有解释，底下也写了一点，虽然是copy的*/</span></span><br><span class="line">    &#123;</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="comment">/*在输入的时候会将换行输入进去，不加getchar()会出错*/</span></span><br><span class="line">    <span class="comment">/*在后面解释为什么*/</span></span><br><span class="line">    <span class="keyword">if</span>(ch[<span class="number">0</span>]&gt;ch[<span class="number">2</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        temp=ch[<span class="number">0</span>];</span><br><span class="line">        ch[<span class="number">0</span>]=ch[<span class="number">2</span>];</span><br><span class="line">        ch[<span class="number">2</span>]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ch[<span class="number">1</span>]&gt;ch[<span class="number">2</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        temp=ch[<span class="number">1</span>];</span><br><span class="line">        ch[<span class="number">1</span>]=ch[<span class="number">2</span>];</span><br><span class="line">        ch[<span class="number">2</span>]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ch[<span class="number">0</span>]&gt;ch[<span class="number">1</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        temp=ch[<span class="number">1</span>];</span><br><span class="line">        ch[<span class="number">1</span>]=ch[<span class="number">0</span>];</span><br><span class="line">        ch[<span class="number">0</span>]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c %c %c\n"</span>,ch[<span class="number">0</span>],ch[<span class="number">1</span>],ch[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    1、 原因是while判断里没有加 ！=EOF，所以程序其实不会结束（如果用数据文件作为输入的话能够看出），scanf函数返回的是输入的数据的个数,什么都不输入代表-1。</p>
+<p>   如果按ctrl+Z 那么scanf函数返回-1，按ctrl+c是强行终止，至于while(scanf(“%d %d”,&amp;a,&amp;b)!=EOF)为什么也有这个效果,原因是一样的。</p>
+<p>   EOF = -1，EOF代表文件结束符，如果运行时 这样 ./2 &lt; data.txt,即以数据文件作为输入，且此时你的程序中没有加上scanf（）！=EOF判断的话，程序会一直跑下去，不会停止，所以需要加上EOF判断，这样提交就AC了。</p>
+<p>​      2、输入的换行符没有吸收，下次scanf的时候会读取换行符。<br>   比如你输入asd(Enter)键，scanf后那个enter键还保留在缓冲中，下次scanf的时候会读取。</p>
+<p>##[2001]计算两点间的距离</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">double</span> x1,x2,y1,y2;</span><br><span class="line">   <span class="comment">/*定义为int型会Output Limit Exceeded，尽量用double类型*/</span></span><br><span class="line">   <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf"</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2)!=EOF)</span><br><span class="line">   <span class="comment">/*前面改了后面也要改啊*/</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,(<span class="keyword">float</span>)<span class="built_in">sqrt</span>(<span class="built_in">pow</span>(x1-x2,<span class="number">2</span>)+<span class="built_in">pow</span>(y1-y2,<span class="number">2</span>)));</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">/*sqrt为开平方根pow为幂函数*/</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这道题主要错在没看题orz<del>我大概是个傻子</del></p>
+<p>##[2005]第几天</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> y,m,d,day;</span><br><span class="line">   <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d/%d/%d"</span>,&amp;y,&amp;m,&amp;d)!=EOF)</span><br><span class="line">   &#123;</span><br><span class="line">       day=<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> y1[<span class="number">13</span>]=&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line">       <span class="keyword">int</span> y2[<span class="number">13</span>]=&#123;<span class="number">0</span>,<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line">       <span class="keyword">if</span>((y%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;y%<span class="number">100</span>!=<span class="number">0</span>)||(y%<span class="number">400</span>==<span class="number">0</span>))</span><br><span class="line">       &#123;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)</span><br><span class="line">              day=day+y1[i];</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)</span><br><span class="line">              day=day+y2[i];</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,day+d);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   这道WA了两次，第一次是在对年份的判断上面，这个错的太傻了，闰年的条件是能被4整除不能被100整除，或者能被400整除(～￣(OO)￣)ブ然后傻乎乎的跪了。<br>   第二次emmmm挂的原因是，我的天数输出了两次，在循环里面printf肯定会导致多次输出啊！！！又一次被自己傻哭，后面改了就好了:sob:</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2018-03-11-周末干些什么"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -480,6 +542,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018-03-14-杭电oj刷题遇到的问题/">杭电oj刷题遇到的问题</a></h6>
+              <span>三月 14, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018-03-11-周末干些什么/">周末干些什么</a></h6>
               <span>三月 11, 2018</span>
             </div>
@@ -531,7 +605,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/手帐/">手帐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/手帐/">手帐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -541,7 +615,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-手帐/">foesa's 手帐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言/">C语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-手帐/">foesa's 手帐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -551,7 +625,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/foesa-s-手帐/" style="font-size: 10px;">foesa's 手帐</a> <a href="/tags/foesa-s-碎碎念/" style="font-size: 10px;">foesa's 碎碎念</a>
+      <a href="/tags/C语言/" style="font-size: 10px;">C语言</a> <a href="/tags/foesa-s-手帐/" style="font-size: 10px;">foesa's 手帐</a> <a href="/tags/foesa-s-碎碎念/" style="font-size: 10px;">foesa's 碎碎念</a>
     </div>
   </div>
 
@@ -561,7 +635,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
