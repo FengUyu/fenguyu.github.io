@@ -143,16 +143,27 @@
 <p>​           我们称为“先进先出”原则。</p>
    <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">101</span>]=&#123;<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">4</span>&#125;,head,tail;</span><br><span class="line">    head=<span class="number">0</span>;<span class="comment">//这个时候头为0</span></span><br><span class="line">    tail=<span class="number">9</span>;<span class="comment">//尾为9，tail指向4的后面一个数</span></span><br><span class="line">    <span class="keyword">while</span>(head!=tail)<span class="comment">//当头尾不相连时</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[head]);</span><br><span class="line">        head++;<span class="comment">//head++在这里是让头出列，因为头已经进行了输出</span></span><br><span class="line">        </span><br><span class="line">        a[tail]=a[head];<span class="comment">//将新的队首加到队尾去</span></span><br><span class="line">        tail++;</span><br><span class="line">        head++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>​    用结构体来实现队列的操作（<del>因为我自己结构体学得太差，所以看着结构体实现队列来学结构体具体用法</del> ）在学习之前，重新捡起结构体的知识，对结构体做一个整体的框架构建吧！内容来自《C语言详解》，《C Primer Plus》。</p>
-<h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p> <strong>结构声明</strong> 描述了一个结构的组织布局<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stuct book&#123;</span><br><span class="line">      <span class="keyword">char</span> title[<span class="number">100</span>];</span><br><span class="line">      <span class="keyword">char</span> author[<span class="number">100</span>];</span><br><span class="line">      <span class="keyword">float</span> value;</span><br><span class="line">     &#125;;</span><br></pre></td></tr></table></figure></p>
-<p>  该声明表示了一个由两个字符数组和一个float类型变量组成的结构。该声明并没有创建实际的数据对象，只描述了该对象由什么组成（有时候我们也将结构声明称为模板，和c++的模板不一样）。首先是关键字struct，它表明跟在其后的是一个结构，后面是一个可选的标记（book），我们在后面的程序中可以这样声明：<br>​       <code>struct book library</code><br>  这把library声明为一个使用book结构布局的结构变量。</p>
-<p><strong>定义结构变量</strong><br> 结构体布局告诉编译器如何表示数据，但是没有让编译器分配空间，下一步是创建一个结构变量，即是结构的另一层含义。<br> 声明结构体的过程和定义结构体的过程可以组合成一个步骤，如下所示，组合后的结构声明和结构变量定义不再需要使用结构体标记。<br> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[MAXTITLE];</span><br><span class="line">    <span class="keyword">char</span> author[MAXAUTL];</span><br><span class="line">    <span class="keyword">float</span> value;</span><br><span class="line">&#125;library;</span><br></pre></td></tr></table></figure></p>
+<h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p> <strong>结构声明</strong> 描述了一个结构的组织布局<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stuct book&#123;</span><br><span class="line">      <span class="keyword">char</span> title[<span class="number">100</span>];</span><br><span class="line">      <span class="keyword">char</span> author[<span class="number">100</span>];</span><br><span class="line">      <span class="keyword">float</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>​       该声明表示了一个由两个字符数组和一个float类型变量组成的结构。该声明并没有创建实际的数据对象，只描述了该对象由什么组成（有时候我们也将结构声明称为模板，和c++的模板不一样）。首先是关键字struct，它表明跟在其后的是一个结构，后面是一个可选的标记（book），我们在后面的程序中可以这样声明：<br>​       <code>struct book library</code><br>​      这把library声明为一个使用book结构布局的结构变量。</p>
+<p><strong>定义结构变量</strong><br>​       结构体布局告诉编译器如何表示数据，但是没有让编译器分配空间，下一步是创建一个结构变量，即是结构的另一层含义。<br>​      <strong>声明结构体的过程和定义结构体的过程可以组合成一个步骤</strong>，如下所示，组合后的结构声明和结构变量定义不再需要使用结构体标记。<br> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> title[MAXTITLE];</span><br><span class="line">    <span class="keyword">char</span> author[MAXAUTL];</span><br><span class="line">    <span class="keyword">float</span> value;</span><br><span class="line">&#125;library;</span><br></pre></td></tr></table></figure></p>
 <p> <strong>访问结构成员</strong><br>   结构体类似于一个“超级数组”，这个超级数组中，可以是各种类型的元素。如何访问结构体的成员？使用结构成员运算符——点（.）访问，ex：library.value。.比&amp;的优先级高，所以&amp;library.value和&amp;(library.value)表达是一样的。如果是结构体指针，那么访问结构体指针应该使用-&gt;。</p>
 <p>  如果him==&amp;barney,那么him-&gt;income即是barney.income</p>
 <p>  如果him==&amp;fellow[0],那么him-&gt;income即是fellow[0].income</p>
 <p> <strong>结构类型</strong> 一种针对记录得数据类型，该记录由多个成员组成</p>
 <p> 结构类型plant_t有5个不同的成员：一个是字符数组类型，一个是int类型，其他三个为double类型。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STRSIZ 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[STRSIZ];</span><br><span class="line">    <span class="keyword">double</span> diameter;</span><br><span class="line">    <span class="keyword">int</span> moons;</span><br><span class="line">    <span class="keyword">double</span> orbit_time,rotation_time;</span><br><span class="line">&#125;<span class="keyword">plant_t</span>;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STRSIZ 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">     <span class="keyword">char</span> name[STRSIZ];</span><br><span class="line">     <span class="keyword">double</span> diameter;</span><br><span class="line">     <span class="keyword">int</span> moons;</span><br><span class="line">     <span class="keyword">double</span> orbit_time,rotation_time;</span><br><span class="line">&#125;<span class="keyword">plant_t</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>声明结构体数组</strong></p>
+<p>​       一个例子：<code>struct book library[MAXBKS]；</code></p>
+<p>​       代码把libray声明为一个内含MAXBKS个元素的数组。数组的每个元素都是一个book类型的数组。因此，library[0]是第一个book类型的结构变量……数组名library本身不是结构名，它是一个数名，该数组中的每个元素都是struct book类型的结构变量。</p>
+<p><strong>标识结构数组的成员</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library             <span class="comment">//一个book结构的数组</span></span><br><span class="line">library[<span class="number">2</span>]          <span class="comment">//一个数组元素，该元素为book类型</span></span><br><span class="line">library[<span class="number">2</span>].title    <span class="comment">//一个char数组（library[2]的titlt成员）</span></span><br><span class="line">library[<span class="number">2</span>].title[<span class="number">4</span>] <span class="comment">//数组中library[2]元素的title成员的一个字符</span></span><br></pre></td></tr></table></figure>
+<h4 id="结构体实现队列"><a href="#结构体实现队列" class="headerlink" title="结构体实现队列"></a>结构体实现队列</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//定义结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">queue</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data[<span class="number">100</span>];<span class="comment">//整个数组的长度</span></span><br><span class="line">    <span class="keyword">int</span> head;<span class="comment">//队头</span></span><br><span class="line">    <span class="keyword">int</span> tail;<span class="comment">//对尾</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">queue</span> <span class="title">q</span>;</span><span class="comment">//声明结构体</span></span><br><span class="line">    q.head=<span class="number">1</span>;</span><br><span class="line">    q.tail=<span class="number">1</span>;<span class="comment">//初始化数据</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;q.data[q.tail]);</span><br><span class="line">        q.tail++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(q.tail!=q.head)<span class="comment">//队列不为空时执行循环</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>q.data[q.head]);<span class="comment">//打印出队首</span></span><br><span class="line">        q.head++;<span class="comment">//将队首移出队</span></span><br><span class="line">        </span><br><span class="line">        q.data[q.tail]=q.data[q.head];<span class="comment">//将新队首的值添加到队尾</span></span><br><span class="line">        q.tail++;</span><br><span class="line">        q.head++;<span class="comment">//将队首出队</span></span><br><span class="line">    &#125;</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><p>   了解什么是栈吧，栈就是先进后出的数据结构，它可以用来判断是否为回文，代码如下。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">101</span>],s[<span class="number">101</span>];</span><br><span class="line">    <span class="keyword">int</span> len,mid,next,top;</span><br><span class="line">    gets(a);<span class="comment">//读入一行字符串</span></span><br><span class="line">    len=<span class="built_in">strlen</span>(a);<span class="comment">//求字符串的长度</span></span><br><span class="line">    mid=len/<span class="number">2</span><span class="number">-1</span>;<span class="comment">//这里不是求字符串的中点，虽然书上是这么写的</span></span><br><span class="line">    </span><br><span class="line">    top=<span class="number">0</span>;<span class="comment">//栈的初始化</span></span><br><span class="line">    <span class="comment">//将mid前的字符依此入栈</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=mid;i++)</span><br><span class="line">        s[++top]=a[i];<span class="comment">//将mid前的数都存入s数组中</span></span><br><span class="line">    <span class="comment">//判断字符串的长度是奇数还是偶数，并找出需要进行字符匹配的起始下标</span></span><br><span class="line">    <span class="keyword">if</span>(len%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">        next=mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        next=mid+<span class="number">2</span>;</span><br><span class="line">    <span class="comment">//匹配开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=next;i&lt;=len<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=s[top])<span class="comment">//将s数组中的数与min后的数进行对比</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果top的值为0，表示所有的字符都被一一匹配了</span></span><br><span class="line">    <span class="keyword">if</span>(top==<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"OK"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Sorry"</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>​        其实栈的使用是很简单的，主要是要注意它只有一边是可以移动的，那就是top，也就是离桶低最远的那一个是可以动的。</p>
+<h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><p>​      在学链表之前先用一段代码来回顾一下指针的内容，malloc是为指针分配内存空间地址，但是我们可能不知道我所定义的类型需要多大的空间，就用sizeof()来计算大小，分配给改类型的指针！不要忘记加括号！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *p;<span class="comment">//定义一个int类型的指针</span></span><br><span class="line">    p=(<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));<span class="comment">//指针p获取动态分配的内存空间地址</span></span><br><span class="line">    *p=<span class="number">10</span>;<span class="comment">//向指针p所指向的内存空间中存入10</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,*p);</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​         接下来就是往数里面插入一些数了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>//声明结构体</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span><span class="comment">//next表示node这种结构体类型的指针</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">head</span>,*<span class="title">p</span>,*<span class="title">q</span>,*<span class="title">t</span>;</span></span><br><span class="line">    <span class="keyword">int</span> n,a;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    head=<span class="literal">NULL</span>;<span class="comment">//空指针</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">        p=(struct node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct node));</span><br><span class="line">        p-&gt;data=a;</span><br><span class="line">        p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span>)</span><br><span class="line">            head=p;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            p-&gt;next=p;</span><br><span class="line">        q=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">    t=head;</span><br><span class="line">    <span class="keyword">while</span>(t!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(t-&gt;nxt==<span class="literal">NULL</span>||t-&gt;next-&gt;data-&gt;a)</span><br><span class="line">        &#123;</span><br><span class="line">            p=(struct node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct node));</span><br><span class="line">            p-&gt;data=a;</span><br><span class="line">            p-&gt;next=t-&gt;next;</span><br><span class="line">            t-&gt;next=p;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        t=t-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    t=head;</span><br><span class="line">    <span class="keyword">while</span>(t!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,t-&gt;data);</span><br><span class="line">        t=t-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    getchar();</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -163,6 +174,64 @@
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-2018-03-14-About-Today"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018-03-14-About-Today/">About Today</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018-03-14-About-Today/" class="article-date">
+	  <time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">三月 14, 2018</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/日常/">日常</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​      今天是很难过的一天。</p>
+<p>   早上上完近代史的那节课之后，突然得知了霍金先生去世的事情，真的是一下子，感觉情绪变得很难过了。给sin鱼发了一条消息，她给我打了电话，短短几分钟，听到了她话里的哽咽······我一直在脑海中觉得，他不会老去，不会死去，当他在微博上回复网友的留言时，感觉和他的距离一下子拉近了。虽然我对霍金先生的了解很少，只是看过一些他所提出的理论，看过他写的《时间简史》，但是突然一下子，这个世界失去了一个探索真相的人，失去了一个物理界的顶尖人物。</p>
+<p>   很难以去描述和表达我的心情，这是一种很微妙的感觉，大概只有此刻的我能够懂我自己吧，这样说可能会被很多人喷跟风，所以就自己在博客里面写写吧。</p>
+<p>  另外一个大概就是我自己的心情问题了，太容易被别人影响，尤其是别人对我的看法，我也知道自己不应该这么想自己，也要觉得自己很棒棒。就还是会很烦躁，可能是自己没能达到自己的预期吧，觉得自己有一点太急于求成了，想要收获更多，那就要付出更多，不是简简单单几天或者是几个月的努力能够达到的。</p>
+<p>  虽然经常被别人比较，因为被比较而感到自己很差劲这真的很正常，因为这个世界上的人厉害的人多了去了，你要做的不是比谁谁谁更好，你要做的是比以前的那个你更好。所以呢，就放宽心，去做自己吧！只要你能做到自己，不在乎别人的看法，这就已经很厉害了呢(✿◡‿◡)</p>
+<p>  想想你究竟想要成为什么样的人，想想你的理想是什么，想想你未来要过怎么样的生活，来大学，是来读大学的，也是来学习知识的。不能被眼前的事情所迷惑，不要拿金钱去换时间，因为现在你所缺的不是金钱，而是时间。你需要更多的时间去充实你自己，去填充你自己，去让自己人生这条路上少一些空白，多一些五彩斑斓的色彩，你可以做到的对吗？</p>
+<p>  不要怕路上别人说话的声音，只要你跑得够快，就只能听见风的声音。</p>
+<p>  foesa你真的是很棒很棒的人啊！<br>  φ(゜▽゜*)♪</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/日常/">日常</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a></li></ul>
 
       
     </footer>
@@ -235,64 +304,6 @@
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C语言/">C语言</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-2018-03-14-About-Today"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018-03-14-About-Today/">About Today</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018-03-14-About-Today/" class="article-date">
-	  <time datetime="2018-03-13T16:00:00.000Z" itemprop="datePublished">三月 14, 2018</time>
-	</a>
-
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/日常/">日常</a>
- 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​      今天是很难过的一天。</p>
-<p>   早上上完近代史的那节课之后，突然得知了霍金先生去世的事情，真的是一下子，感觉情绪变得很难过了。给sin鱼发了一条消息，她给我打了电话，短短几分钟，听到了她话里的哽咽······我一直在脑海中觉得，他不会老去，不会死去，当他在微博上回复网友的留言时，感觉和他的距离一下子拉近了。虽然我对霍金先生的了解很少，只是看过一些他所提出的理论，看过他写的《时间简史》，但是突然一下子，这个世界失去了一个探索真相的人，失去了一个物理界的顶尖人物。</p>
-<p>   很难以去描述和表达我的心情，这是一种很微妙的感觉，大概只有此刻的我能够懂我自己吧，这样说可能会被很多人喷跟风，所以就自己在博客里面写写吧。</p>
-<p>  另外一个大概就是我自己的心情问题了，太容易被别人影响，尤其是别人对我的看法，我也知道自己不应该这么想自己，也要觉得自己很棒棒。就还是会很烦躁，可能是自己没能达到自己的预期吧，觉得自己有一点太急于求成了，想要收获更多，那就要付出更多，不是简简单单几天或者是几个月的努力能够达到的。</p>
-<p>  虽然经常被别人比较，因为被比较而感到自己很差劲这真的很正常，因为这个世界上的人厉害的人多了去了，你要做的不是比谁谁谁更好，你要做的是比以前的那个你更好。所以呢，就放宽心，去做自己吧！只要你能做到自己，不在乎别人的看法，这就已经很厉害了呢(✿◡‿◡)</p>
-<p>  想想你究竟想要成为什么样的人，想想你的理想是什么，想想你未来要过怎么样的生活，来大学，是来读大学的，也是来学习知识的。不能被眼前的事情所迷惑，不要拿金钱去换时间，因为现在你所缺的不是金钱，而是时间。你需要更多的时间去充实你自己，去填充你自己，去让自己人生这条路上少一些空白，多一些五彩斑斓的色彩，你可以做到的对吗？</p>
-<p>  不要怕路上别人说话的声音，只要你跑得够快，就只能听见风的声音。</p>
-<p>  foesa你真的是很棒很棒的人啊！<br>  φ(゜▽゜*)♪</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/日常/">日常</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a></li></ul>
 
       
     </footer>
@@ -696,7 +707,7 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2018-03-14-杭电oj刷题遇到的问题/">杭电oj刷题遇到的问题</a></h6>
+              <h6 style="margin: 0;"><a href="/2018-03-14-About-Today/">About Today</a></h6>
               <span>三月 14, 2018</span>
             </div>
 
@@ -708,7 +719,7 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2018-03-14-About-Today/">About Today</a></h6>
+              <h6 style="margin: 0;"><a href="/2018-03-14-杭电oj刷题遇到的问题/">杭电oj刷题遇到的问题</a></h6>
               <span>三月 14, 2018</span>
             </div>
 
