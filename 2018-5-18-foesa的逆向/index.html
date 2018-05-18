@@ -3,27 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>写给今天的404 | foesa&#39;s blog</title>
+  <title>foesa的逆向 | foesa&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="逆向" />
   
   
   
-  <meta name="description" content="今天渣浪炸了，其实想说很多，但是其实感觉对这件事情很无力。    可以很直接的说，我其实不清楚我现在的性取向是什么，不知道自己会喜欢什么样的人，不知道那个人是男生还是女生，或者其实我不会喜欢上别人，自己一个人孤独的过这一生。我之前隐晦的和爸爸妈妈有过提及这个问题，但是他们都没有给过明确的态度，可能是当我太小吧，很多我说的话他们都假装听不懂，甚至直接忽视掉，我也很想要他们理解我，但是好像太难了">
+  
+  <meta name="description" content="foesa的逆向尝试第一道逆向题大概是一道非常简单的观察题，贴出题目地址： 实验吧 逆向观察 writeup： 好像看别人的wp，说是od调试可以很快的得出答案，但是辣鸡foesa并不会，所以就用IDA调试了一波，果然是观察题啊~  把它丢进去之后就看到了，;&amp;quot;Good password !&amp;quot; 这个时候尝试一波F5，就可以看到了c代码，如下XD，就发现自己离flag近了  st">
+<meta name="keywords" content="逆向">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写给今天的404">
-<meta property="og:url" content="https://fenguyu.github.io/2018-04-14-写给今天的404/index.html">
+<meta property="og:title" content="foesa的逆向">
+<meta property="og:url" content="https://fenguyu.github.io/2018-5-18-foesa的逆向/index.html">
 <meta property="og:site_name" content="foesa&#39;s blog">
-<meta property="og:description" content="今天渣浪炸了，其实想说很多，但是其实感觉对这件事情很无力。    可以很直接的说，我其实不清楚我现在的性取向是什么，不知道自己会喜欢什么样的人，不知道那个人是男生还是女生，或者其实我不会喜欢上别人，自己一个人孤独的过这一生。我之前隐晦的和爸爸妈妈有过提及这个问题，但是他们都没有给过明确的态度，可能是当我太小吧，很多我说的话他们都假装听不懂，甚至直接忽视掉，我也很想要他们理解我，但是好像太难了">
+<meta property="og:description" content="foesa的逆向尝试第一道逆向题大概是一道非常简单的观察题，贴出题目地址： 实验吧 逆向观察 writeup： 好像看别人的wp，说是od调试可以很快的得出答案，但是辣鸡foesa并不会，所以就用IDA调试了一波，果然是观察题啊~  把它丢进去之后就看到了，;&amp;quot;Good password !&amp;quot; 这个时候尝试一波F5，就可以看到了c代码，如下XD，就发现自己离flag近了  st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://fenguyu.github.io/2018-04-14-写给今天的404/long.png">
-<meta property="og:image" content="https://fenguyu.github.io/2018-04-14-写给今天的404/long2.png">
-<meta property="og:image" content="https://fenguyu.github.io/2018-04-14-写给今天的404/404.pgf.png">
-<meta property="og:updated_time" content="2018-04-16T12:48:58.809Z">
+<meta property="og:image" content="https://fenguyu.github.io/2018-5-18-foesa的逆向/Photo1.jpg">
+<meta property="og:image" content="https://fenguyu.github.io/2018-5-18-foesa的逆向/Photo2.jpg">
+<meta property="og:updated_time" content="2018-05-18T10:51:31.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写给今天的404">
-<meta name="twitter:description" content="今天渣浪炸了，其实想说很多，但是其实感觉对这件事情很无力。    可以很直接的说，我其实不清楚我现在的性取向是什么，不知道自己会喜欢什么样的人，不知道那个人是男生还是女生，或者其实我不会喜欢上别人，自己一个人孤独的过这一生。我之前隐晦的和爸爸妈妈有过提及这个问题，但是他们都没有给过明确的态度，可能是当我太小吧，很多我说的话他们都假装听不懂，甚至直接忽视掉，我也很想要他们理解我，但是好像太难了">
-<meta name="twitter:image" content="https://fenguyu.github.io/2018-04-14-写给今天的404/long.png">
+<meta name="twitter:title" content="foesa的逆向">
+<meta name="twitter:description" content="foesa的逆向尝试第一道逆向题大概是一道非常简单的观察题，贴出题目地址： 实验吧 逆向观察 writeup： 好像看别人的wp，说是od调试可以很快的得出答案，但是辣鸡foesa并不会，所以就用IDA调试了一波，果然是观察题啊~  把它丢进去之后就看到了，;&amp;quot;Good password !&amp;quot; 这个时候尝试一波F5，就可以看到了c代码，如下XD，就发现自己离flag近了  st">
+<meta name="twitter:image" content="https://fenguyu.github.io/2018-5-18-foesa的逆向/Photo1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="foesa&#39;s blog" type="application/atom+xml">
   
@@ -128,7 +130,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2018-04-14-写给今天的404" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2018-5-18-foesa的逆向" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -136,7 +138,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      写给今天的404
+      foesa的逆向
     </h1>
   
 
@@ -144,13 +146,13 @@
     
     <div class="article-meta">
       
-	<a href="/2018-04-14-写给今天的404/" class="article-date">
-	  <time datetime="2018-04-13T16:00:00.000Z" itemprop="datePublished">四月 14, 2018</time>
+	<a href="/2018-5-18-foesa的逆向/" class="article-date">
+	  <time datetime="2018-05-17T16:00:00.000Z" itemprop="datePublished">五月 18, 2018</time>
 	</a>
 
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/一些负面情绪/">一些负面情绪</a>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
  
       
 	<span id="busuanzi_container_page_pv">
@@ -160,25 +162,35 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>   今天渣浪炸了，其实想说很多，但是其实感觉对这件事情很无力。</p>
-<p>   可以很直接的说，我其实不清楚我现在的性取向是什么，不知道自己会喜欢什么样的人，不知道那个人是男生还是女生，或者其实我不会喜欢上别人，自己一个人孤独的过这一生。我之前隐晦的和爸爸妈妈有过提及这个问题，但是他们都没有给过明确的态度，可能是当我太小吧，很多我说的话他们都假装听不懂，甚至直接忽视掉，我也很想要他们理解我，但是好像太难了。</p>
-<p>   这篇来自“我的票圈”微信公众号的文章，看得我有一点泪目，生活太艰难了，我们憧憬的美好生活，好像一辈子都离我们很远很远的样子。如果这个世界上的大部分人，都能宽容一点多好啊？能宽容别人的不一样。</p>
-<p>   <img src="/2018-04-14-写给今天的404/long.png" alt=""><br>   <img src="/2018-04-14-写给今天的404/long2.png" alt=""></p>
-<p>   文章没有贴链接，因为链接打开就已经是404了，微博上只有转了很多遍的图片，微博上的#我是同性恋#这个tag也被封了，内心充斥了无数的心酸难受。因为对于我们来说，或者后来的很多人看现在，可能只是中国走了一点的弯路，但是对于现在处于这个年代的人来说，他们毁掉的就是一辈子。</p>
-<p>   我也不知道在读完这篇文章过后的你们，心里作何感想，至少在我看到微博上，同志之声被迫停止的时候，我的内心是有一些酸楚的。2003~2018，中国会变得更好吗？</p>
-<p>   我对此有些怀疑，但是当我们处于这样的和平年代之中，我还是会觉得无比的幸运，我从来不觉得中国是“你国”，也一直觉得很多人的你国言论让我感觉不舒服，我一直认为，生于中国，是一件很幸运的事。言论自由似乎已经成了空谈，一篇又一篇的文章出现着404，你可以删除微博，删除热搜，但是你不能阻止我说话。</p>
-<p>​    我想要的不是一个满屏404的中国。</p>
-<p>   <img src="/2018-04-14-写给今天的404/404.pgf.png" alt="404.pgf"></p>
-<p>   文章写了一天多了，但是才放到网上去，也知道博客看的人很少，但我还是想发声。</p>
+        <h3 id="foesa的逆向尝试"><a href="#foesa的逆向尝试" class="headerlink" title="foesa的逆向尝试"></a>foesa的逆向尝试</h3><h4 id="第一道逆向题"><a href="#第一道逆向题" class="headerlink" title="第一道逆向题"></a>第一道逆向题</h4><p>大概是一道非常简单的观察题，贴出题目地址：</p>
+<p><a href="http://www.shiyanbar.com/ctf/1990" target="_blank" rel="noopener">实验吧 逆向观察</a></p>
+<p>writeup：</p>
+<p>好像看别人的wp，说是od调试可以很快的得出答案，但是辣鸡foesa并不会，所以就用IDA调试了一波，果然是观察题啊~</p>
+<p><img src="/2018-5-18-foesa的逆向/Photo1.jpg" alt=""></p>
+<p>把它丢进去之后就看到了，<code>;&quot;Good password !&quot;</code></p>
+<p>这个时候尝试一波F5，就可以看到了c代码，如下XD，就发现自己离flag近了</p>
+<p><img src="/2018-5-18-foesa的逆向/Photo2.jpg" alt=""></p>
+<p>strcmp这个是C/C++函数，用来比较两个字符串的</p>
+<p>设这两个字符串为str1和str2</p>
+<p>如果str1==str2，返回0；</p>
+<p>如果str1 &lt; str2，返回负数；</p>
+<p>如果str1 &gt; str2，返回整数。</p>
+<p>​      这里是if内为正值的时候执行，才能得到flag，那么，<code>!strcmp(argv[1], (&amp;dict)[8 * i]) &amp;&amp; !strcmp(&amp;dest, (&amp;dict)[8 * i])</code>里面应该是正值，所以当两个字符串相等的时候，返回0，0的非则为正值，可以得到flag。</p>
+<p>​        看到前面的scr = ‘sedecrem’;<del>等等，我这个是已经改过了之后的orz</del></p>
+<p>​        咳咳，之前scr是一串很长的数字，然后我们右键一下，然后R，可以转化为它的字符串形式，就是现在看到的sedecrem，如果你在做这道题的时候，直接把sedecrem提交上去，你会发现这是错的……<del>如果你查一查sedecrem这个单词也是不存在的</del></p>
+<p>​         然后再看一看到底是什么毛病，我们离答案是很近了的，那让我们来查找一下这个sedecrem，打开view找到字符串，我们进行查找，输入进去，你会发现，IDA报错了，Search sting is not found，那我们想一想，这个是错的，那还有什么和它很像呢，就是把它倒过来啊，mercedes。倒过来之后我们再对它查找一波，你会发现，咦能找到啊！它大概就是答案了，输进去，ok，第一道逆向题目做出来了。</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/一些负面情绪/">一些负面情绪</a>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
 
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逆向/">逆向</a></li></ul>
+
       
         
 	<div id="comment">
@@ -212,19 +224,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018-5-18-foesa的逆向/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          foesa的逆向
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018-3-27-《啊哈！算法》的一些尝试/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018-04-14-写给今天的404/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">《啊哈！算法》的阅读记录及一些尝试</div>
+      <div class="article-nav-title">写给今天的404</div>
     </a>
   
 </nav>
@@ -238,7 +241,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="nav">无</ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#foesa的逆向尝试"><span class="nav-number">1.</span> <span class="nav-text">foesa的逆向尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一道逆向题"><span class="nav-number">1.1.</span> <span class="nav-text">第一道逆向题</span></a></li></ol></li></ol>
     
     </div>
   </aside>

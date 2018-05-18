@@ -122,6 +122,73 @@
         
           <section id="main">
   
+    <article id="post-2018-5-18-foesa的逆向"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018-5-18-foesa的逆向/">foesa的逆向</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018-5-18-foesa的逆向/" class="article-date">
+	  <time datetime="2018-05-17T16:00:00.000Z" itemprop="datePublished">五月 18, 2018</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="foesa的逆向尝试"><a href="#foesa的逆向尝试" class="headerlink" title="foesa的逆向尝试"></a>foesa的逆向尝试</h3><h4 id="第一道逆向题"><a href="#第一道逆向题" class="headerlink" title="第一道逆向题"></a>第一道逆向题</h4><p>大概是一道非常简单的观察题，贴出题目地址：</p>
+<p><a href="http://www.shiyanbar.com/ctf/1990" target="_blank" rel="noopener">实验吧 逆向观察</a></p>
+<p>writeup：</p>
+<p>好像看别人的wp，说是od调试可以很快的得出答案，但是辣鸡foesa并不会，所以就用IDA调试了一波，果然是观察题啊~</p>
+<p><img src="/2018-5-18-foesa的逆向/Photo1.jpg" alt=""></p>
+<p>把它丢进去之后就看到了，<code>;&quot;Good password !&quot;</code></p>
+<p>这个时候尝试一波F5，就可以看到了c代码，如下XD，就发现自己离flag近了</p>
+<p><img src="/2018-5-18-foesa的逆向/Photo2.jpg" alt=""></p>
+<p>strcmp这个是C/C++函数，用来比较两个字符串的</p>
+<p>设这两个字符串为str1和str2</p>
+<p>如果str1==str2，返回0；</p>
+<p>如果str1 &lt; str2，返回负数；</p>
+<p>如果str1 &gt; str2，返回整数。</p>
+<p>​      这里是if内为正值的时候执行，才能得到flag，那么，<code>!strcmp(argv[1], (&amp;dict)[8 * i]) &amp;&amp; !strcmp(&amp;dest, (&amp;dict)[8 * i])</code>里面应该是正值，所以当两个字符串相等的时候，返回0，0的非则为正值，可以得到flag。</p>
+<p>​        看到前面的scr = ‘sedecrem’;<del>等等，我这个是已经改过了之后的orz</del></p>
+<p>​        咳咳，之前scr是一串很长的数字，然后我们右键一下，然后R，可以转化为它的字符串形式，就是现在看到的sedecrem，如果你在做这道题的时候，直接把sedecrem提交上去，你会发现这是错的……<del>如果你查一查sedecrem这个单词也是不存在的</del></p>
+<p>​         然后再看一看到底是什么毛病，我们离答案是很近了的，那让我们来查找一下这个sedecrem，打开view找到字符串，我们进行查找，输入进去，你会发现，IDA报错了，Search sting is not found，那我们想一想，这个是错的，那还有什么和它很像呢，就是把它倒过来啊，mercedes。倒过来之后我们再对它查找一波，你会发现，咦能找到啊！它大概就是答案了，输进去，ok，第一道逆向题目做出来了。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/逆向/">逆向</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-2018-04-14-写给今天的404"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -774,6 +841,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2018-5-18-foesa的逆向/">foesa的逆向</a></h6>
+              <span>五月 18, 2018</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2018-04-14-写给今天的404/">写给今天的404</a></h6>
               <span>四月 14, 2018</span>
             </div>
@@ -828,18 +907,6 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018-03-01-新学期的计划/">2018年新学期规划</a></h6>
-              <span>三月 1, 2018</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -849,7 +916,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/一些负面情绪/">一些负面情绪</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/手帐/">手帐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/一些负面情绪/">一些负面情绪</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/手帐/">手帐</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/日常/">日常</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -859,7 +926,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言/">C语言</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-手帐/">foesa's 手帐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言/">C语言</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-手帐/">foesa's 手帐</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/foesa-s-碎碎念/">foesa's 碎碎念</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/逆向/">逆向</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -869,7 +936,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C语言/" style="font-size: 20px;">C语言</a> <a href="/tags/foesa-s-手帐/" style="font-size: 10px;">foesa's 手帐</a> <a href="/tags/foesa-s-碎碎念/" style="font-size: 20px;">foesa's 碎碎念</a>
+      <a href="/tags/C语言/" style="font-size: 20px;">C语言</a> <a href="/tags/foesa-s-手帐/" style="font-size: 10px;">foesa's 手帐</a> <a href="/tags/foesa-s-碎碎念/" style="font-size: 20px;">foesa's 碎碎念</a> <a href="/tags/逆向/" style="font-size: 10px;">逆向</a>
     </div>
   </div>
 
@@ -879,7 +946,7 @@
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
